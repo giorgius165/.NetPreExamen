@@ -1,0 +1,35 @@
+﻿@model PruebaExamen.Models.AlmacenModelo
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<h2 align="center">@Html.DisplayName(Model.Nombre)</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Material")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Materiales)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
